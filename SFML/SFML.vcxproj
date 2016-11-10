@@ -218,7 +218,8 @@
     <ClInclude Include="Things.h" />
   </ItemGroup>
   <ItemGroup>
-    <Font Include="arial.ttf" />
+    <Font Include="resources\fonts\arial.ttf" />
+    <Font Include="resources\fonts\Ubuntu-R.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

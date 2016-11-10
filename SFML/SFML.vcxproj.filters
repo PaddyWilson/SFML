@@ -103,7 +103,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="arial.ttf">
+    <Font Include="resources\fonts\arial.ttf">
+      <Filter>Resource Files\fonts</Filter>
+    </Font>
+    <Font Include="resources\fonts\Ubuntu-R.ttf">
       <Filter>Resource Files\fonts</Filter>
     </Font>
   </ItemGroup>
