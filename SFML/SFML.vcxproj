@@ -199,6 +199,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameStateLevel.cpp" />
     <ClCompile Include="GameStateTest.cpp" />
+    <ClCompile Include="GSMainMenu.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -213,11 +214,13 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateLevel.h" />
     <ClInclude Include="GameStateTest.h" />
+    <ClInclude Include="GSMainMenu.h" />
     <ClInclude Include="IDraw.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Protectile.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="TextButton.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Things.h" />
   </ItemGroup>

@@ -57,11 +57,14 @@
     <ClCompile Include="Map.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
     <ClCompile Include="FontManager.cpp">
       <Filter>Source Files\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\Managers</Filter>
+    <ClCompile Include="GSMainMenu.cpp">
+      <Filter>Source Files\GameStates</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,11 +98,17 @@
     <ClInclude Include="Map.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
     <ClInclude Include="FontManager.h">
       <Filter>Header Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\Managers</Filter>
+    <ClInclude Include="GSMainMenu.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="TextButton.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

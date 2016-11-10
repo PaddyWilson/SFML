@@ -6,6 +6,7 @@
 #include "GameState.h"
 #include "GameStateTest.h"
 #include "GameStateLevel.h"
+#include "GSMainMenu.h"
 
 //#include "ParticaleSystem.h"
 //class ParticleSystem;
@@ -17,7 +18,8 @@ int main()
 	std::cout << "Current Directory = " << path << std::endl;
 
 	Game game;
-	game.gameState.push(new GameStateLevel(&game));
+	game.gameState.push(new GSMainMenu(&game)); 
+	//game.gameState.push(new GameStateTest(&game));
 	game.run();
 
 	return 0;

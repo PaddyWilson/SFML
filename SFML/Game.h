@@ -12,6 +12,7 @@
 class GameState;
 class GameStateTest;
 class GameStateLevel;
+class GSMainMenu;
 
 class Game
 {
