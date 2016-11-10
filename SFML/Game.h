@@ -3,7 +3,6 @@
 #include <stack>
 
 #include "Things.h"
-#include "Manager.h"
 #include "GameState.h"
 
 #include "TextureManager.h"

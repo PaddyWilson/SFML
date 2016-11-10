@@ -3,7 +3,7 @@
 void FontManager::load(const std::string& name, const  std::string& file)
 {
 	sf::Font font;
-	if (!font.loadFromFile(file))
+	if (!font.loadFromFile(dir + file))
 	{
 		std::cout << "Can't load font '" << file << "'" << std::endl;
 		//EXIT_FAILURE;

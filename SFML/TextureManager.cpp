@@ -3,7 +3,7 @@
 void TextureManager::load(const std::string & name, const std::string & file)
 {
 	sf::Texture tex;
-	if (!tex.loadFromFile(file))
+	if (!tex.loadFromFile("./resources/texture/"+file))
 	{
 		std::cout << "Can't load texture '" << file << "'" << std::endl;
 	}

@@ -13,4 +13,5 @@ public:
 
 private:
 	std::map<std::string, sf::Font> fonts;
+	const std::string dir = "./resources/fonts/";
 };
