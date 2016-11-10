@@ -22,7 +22,7 @@ int main()
 
 	Game game;
 
-	game.gameState.push(new GameStateTest(&game));
+	game.gameState.push(new GameStateLevel(&game));
 	
 	game.run();
 
