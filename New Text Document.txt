@@ -1,0 +1,305 @@
+#include <SFML/Graphics.hpp>
+#include <stdlib.h>//random
+#include <Windows.h>//get current dir windows
+
+#include "Things.h"
+
+#include "Game.h"
+#include "GameStateLevel.h"
+#include "IDraw.h"
+#include "Player.h"
+
+#include "Manager.h"
+#include "FontManager.h"
+#include "TextureManager.h"
+#include "Text.h"
+
+#include "Protectile.h"
+
+
+int main()
+{
+	/*float a = 180;
+	for (int i = 0; i<20; i++)
+		printf("%f\n", ((float)rand() / (float)(RAND_MAX)) * a + 180);*/
+
+	char path[MAX_PATH];
+	GetCurrentDirectoryA(MAX_PATH, path);
+	std::cout << "Current Directory = " << path << std::endl;
+
+	Game game;
+
+	game.gameState.push(new GameStateLevel(&game));
+	game.run();
+
+	return 0;
+
+//	//Things();
+//
+//	srand(0);//seed random
+//
+//
+//
+//	TextureManager textureManager;
+//	FontManager fontManager;
+//
+//	//std::stack<Scene> scenes;	
+//
+//	textureManager.loadTexture("potato", "potato.png");
+//	textureManager.loadTexture("grid1", "grid1.png");
+//	//textureManager.textures["potato"].setSmooth(true);
+//
+//	fontManager.loadFont("arial", "arial.ttf");
+//
+//	sf::ContextSettings settings;
+//	//settings.antialiasingLevel = 8;
+//
+//	sf::RenderWindow window(sf::VideoMode(width, height), "SFML works!", sf::Style::Default, settings);
+//	window.setFramerateLimit(fps);
+//
+//	sf::View view(sf::Vector2f(width / 2.f, height / 2.f), sf::Vector2f((float)width, (float)height));
+//
+//	Player player = Player(10, 10, 100, 40);
+//	Text text("words\nhello", fontManager.getRef("arial"));
+//	text.setColor(sf::Color::Magenta);
+//
+//	sf::Sprite sprite;
+//	sprite.setTexture(textureManager.getRef("grid1"));
+//	sprite.setColor(sf::Color(255, 255, 0, 128));
+//	int ani = 0;
+//	sf::IntRect an[2]
+//	{
+//		sf::IntRect(0, 0, 32, 32),
+//		sf::IntRect(32, 0, 32, 32)
+//	};
+//
+//	sprite.setTextureRect(an[ani]);
+//	sprite.setScale(5.0f, 5.0f);
+//
+//	textureManager.loadTexture("grid", "grid.png");
+//	/*Circle *cir = new Circle(50, 20, 10.0f, sf::Color::Red);
+//	std::vector<Circle> circles = std::vector<Circle>();
+//	circles.push_back(Circle(80, 280, 10.0f, sf::Color::Red));
+//	circles.push_back(Circle(270, 570, 5.0f, sf::Color::Magenta));
+//	circles.push_back(Circle(490, 320, 15.0f, sf::Color::Cyan));*/
+//
+//	Tile tile = Tile(500, 400, 298 / 3, 400 / 3);
+//	tile.setTexture(textureManager.getRef("potato"));
+//	std::vector<IDraw*> draw = std::vector<IDraw*>();
+//	draw.push_back(&player);
+//
+//	//draw.push_back(cir);
+//	draw.push_back(&tile);
+//	draw.push_back(&text);
+//	/*for (size_t i = 0; i < circles.size(); i++)
+//	{
+//		draw.push_back(&circles.at(i));
+//	}*/
+//
+//	std::vector<Projectile> pros;
+//
+//
+//	//two player
+//	//sf::View view2(sf::Vector2f(200, 600 / 2), sf::Vector2f(1000, 1000));
+//	//view.setViewport(sf::FloatRect(0, 0, 0.5f, 1));
+//	//view2.setViewport(sf::FloatRect(0.5f, 0, 0.5f, 1));
+//
+//	//std::vector<sf::Vertex> line = std::vector<sf::Vertex>();
+//	//line.push_back(sf::Vector2f(width / 2, height / 2));
+//	//line.push_back(sf::Vector2f(800, 600));
+//	/*sf::Vertex line[] =
+//	{
+//		sf::Vertex(sf::Vector2f(800/2, 600/2)),
+//		sf::Vertex(sf::Vector2f(150, 150))
+//	};*/
+//
+//	/*line[0].color = sf::Color::Red;
+//	line[1].color = sf::Color::Blue;*/
+//
+//	//view.setSize(1000, 1000);
+//
+//	//std::vector<Projectile> pros;
+//
+//
+//
+//	sf::Clock frameTime;
+//	float lastTime = 0;
+//	while (window.isOpen())
+//	{
+//		float time = frameTime.restart().asSeconds();
+//		float fps = 1.f / (time - lastTime);
+//		lastTime = time;
+//		//text.setText("FPS=" + std::to_string(fps));
+//
+//		//frameTime = &t;
+//	/*	if (time >= 0.01f)
+//		{
+//std::cout << time << std::endl;
+//		}*/
+//
+//		sf::Event event;
+//		while (window.pollEvent(event))
+//		{
+//			/*if (event.type == sf::Event::TextEntered)
+//			{
+//				if (event.text.unicode < 128)
+//					std::cout << "ASCII character typed: " << static_cast<char>(event.text.unicode) << std::endl;
+//			}*/
+//
+//			if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+//				window.close();
+//			/*if (event.type == sf::Event::MouseWheelScrolled)
+//			{
+//				if (event.mouseWheelScroll.wheel == sf::Mouse::VerticalWheel)
+//					std::cout << "wheel type: vertical" << std::endl;
+//				else if (event.mouseWheelScroll.wheel == sf::Mouse::HorizontalWheel)
+//					std::cout << "wheel type: horizontal" << std::endl;
+//				else
+//					std::cout << "wheel type: unknown" << std::endl;
+//			}*/
+//			if (event.type == sf::Event::Resized)
+//			{
+//				std::cout << window.getSize().x << " " << window.getSize().y << std::endl;
+//				//sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+//				window.setView(sf::View(sf::Vector2f(event.size.width / 2, event.size.height / 2), sf::Vector2f(event.size.width, event.size.height)));
+//			}
+//			//if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1))
+//			//{
+//
+//				// left key is pressed: move our character
+//				//window.setFramerateLimit(0);
+//				//std::cout << "Left" << std::endl;
+//			//}
+//			//else
+//			//{
+//				//window.setFramerateLimit(fps);
+//			//}
+//
+//			//check for joysticks - max 8
+//			for (size_t i = 0; i < 8; i++)
+//			{
+//				if (sf::Joystick::isConnected(i))
+//				{
+//
+//					for (size_t x = 0; x < 32; x++)
+//					{
+//						/*switch (sf::Joystick::Axis)
+//						{
+//						case sf::Joystick::Axis::PovX:
+//						default:
+//							break;
+//						}*/
+//						//std::cout << "Joy Button " << i << " " << x << " " << getEnum((sf::Joystick::Axis)x) << " " << sf::Joystick::hasAxis(i, (sf::Joystick::Axis)x) << std::endl;
+//
+//						/*if (sf::Joystick::isButtonPressed(i, x))
+//							std::cout << "Joy Button " << i << " " << x << std::endl;*/
+//					}
+//
+//
+//					/* joystick enum mappings
+//					x/y = right stick
+//					z = triggers
+//					r/u = left stick
+//					v = nothing
+//					povx/povy = dpad
+//					*/
+//
+//					//float x = sf::Joystick::getAxisPosition(i, sf::Joystick::X);
+//					//float y = sf::Joystick::getAxisPosition(i, sf::Joystick::Y);
+//					//// joystick number 0 is connected
+//					//std::cout << "Joy " <<
+//					//	sf::Joystick::getAxisPosition(i, sf::Joystick::PovX) << " " <<
+//					//	sf::Joystick::getAxisPosition(i, sf::Joystick::PovY) << " " << std::endl;
+//					//sf::Joystick::getButtonCount(i);
+//				}
+//			}
+//
+//		}// end window events
+//
+//		//sf::Thread t1(std::bind(&func, 0, 4, time));
+//		//sf::Thread t2(std::bind(&func, 1, 4, time));
+//		//sf::Thread t3(std::bind(&func, 2, 4, time));
+//
+//		//t1.launch();
+//		//t2.launch();
+//		//t3.launch();
+//
+//		//for (size_t i = 3; i < pros.size(); i+=4)
+//		//{
+//		//pros.at(i).move(time);
+//		//}
+//
+//		player.update(time);//move player
+//
+//		//t1.wait();
+//		//t2.wait();
+//		//t3.wait();
+//		for (size_t i = 0; i < pros.size(); i++)
+//		{
+//			pros.at(i).update(time);
+//		}
+//
+//		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+//		{
+//			pros.push_back(Projectile(player.rectangle.getPosition(), (sf::Vector2f)sf::Mouse::getPosition(window), sf::Vector2f(150, 150), 20, sf::Color::Red));
+//		}
+//
+//		/*for (size_t i = 0; i < circles.size(); i++)
+//		{
+//			circles.at(i).move(random(), random(), dt.asSeconds());
+//		}
+//
+//		cir->move(random(), random(), dt.asSeconds());
+//		tile->move(random(), random(), dt.asSeconds());*/
+//		tile.rot(45, time);
+//
+//		//line.push_back(sf::Vertex(sf::Vector2f(sf::Mouse::getPosition(window).x , sf::Mouse::getPosition(window).y)));
+//		//line.push_back(sf::Vertex(sf::Vector2f(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y)));
+//
+//		//line[1] = ;
+//
+//		// update text
+//
+//		text.setText(std::to_string(pros.size()));
+//
+//		// draw things
+//		window.clear();//clear the screen first
+//		window.setView(view);
+//
+//		//draw->draw(window);
+//		for (size_t i = 0; i < draw.size(); i++)
+//		{
+//			draw.at(i)->draw(window);
+//		}
+//
+//		for (size_t i = 0; i < pros.size(); i++)
+//		{
+//			pros.at(i).draw(window);
+//		}
+//		/*if (ani == 0)
+//		{
+//			sprite.setTextureRect(an[ani]);
+//			ani++;
+//		}
+//		else
+//		{
+//			sprite.setTextureRect(an[ani]);
+//			ani--;
+//		}*/
+//
+//
+//		window.draw(sprite);
+//		//sf::Vertex* pv = &line[0];
+//		//window.draw(pv, line.size(), sf::Lines);
+//		/*window.setView(view2);
+//		for (size_t i = 0; i < draw.size(); i++)
+//		{
+//			draw.at(i)->draw(window);
+//		}*/
+//
+//		text.draw(window);
+//		window.display();
+//
+//	}
+	return 0;
+}
